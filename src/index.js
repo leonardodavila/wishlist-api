@@ -2,7 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
+const connectToMongo = require("./db/mongo");
+
 const routes = require("./routes/wishlist-routes");
+
+connectToMongo();
 
 const port = 3000;
 

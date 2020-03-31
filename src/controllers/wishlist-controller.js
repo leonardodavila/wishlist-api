@@ -1,5 +1,13 @@
+const Wishlist = require("../models/wishlist");
+
 function getAllWishlists(request, response) {
-  response.send("BUSCANDO TODAS AS WISHLISTS");
+  Wishlist.find({})
+    .then(function(wishlists) {
+      response.status(200).send(wishlists);
+    })
+    .catch(function(err) {
+      response.status(500).send({ message: "Ops! Ocorreu um erro" });
+    });
 }
 
 function getWishlistById(request, response) {
@@ -7,8 +15,18 @@ function getWishlistById(request, response) {
 }
 
 function createWishlist(request, response) {
-  console.log(request.body);
-  response.send("VOU CRIAR A SUA WISHLIST");
+  const wishlist = request.body;
+
+  Wishlist.create(wishlist)
+    .then(function() {
+      response.status(201).send({ message: "Wishlist createtd" });
+    })
+    .catch(function(err) {
+      console.error(err);
+      response
+        .status(500)
+        .send({ message: "Ops! Estamos com alguns problemas." });
+    });
 }
 
 module.exports = {
