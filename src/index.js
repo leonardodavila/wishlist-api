@@ -31,4 +31,6 @@ app.listen(port, function() {
   e escreve o código acima
 
   npm install nodemon --save-dev | npm install nodemon -D 
+
+  NPM INSTALL MONGOOSE --save
 */

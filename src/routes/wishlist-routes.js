@@ -9,4 +9,8 @@ router.post("/wishlist", WishlistController.createWishlist);
 
 router.get("/wishlist/:id", WishlistController.getWishlistById);
 
+router.delete("/wishlist/:id", WishlistController.deleteWishlist);
+
+router.put("/wishlist/:id", WishlistController.updateWishlist);
+
 module.exports = router;
